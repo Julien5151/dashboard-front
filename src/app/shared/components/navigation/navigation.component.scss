@@ -1,0 +1,12 @@
+@import "src/app/styles/colors";
+
+nav {
+
+    display: flex;
+    padding: 1.0rem;
+    background-color: $background-blue;
+
+    button {
+        margin: 0 1.0rem;
+    }
+}

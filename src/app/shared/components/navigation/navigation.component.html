@@ -1,0 +1,17 @@
+<nav>
+    <button mat-raised-button color="primary" [matMenuTriggerFor]="authMenu">
+        Authentication
+    </button>
+    <mat-menu #authMenu="matMenu">
+        <button mat-menu-item>Login</button>
+        <button mat-menu-item>Sign-in</button>
+    </mat-menu>
+    <!---->
+    <button mat-raised-button color="primary" [matMenuTriggerFor]="ticketMenu">
+        Tickets
+    </button>
+    <mat-menu #ticketMenu="matMenu">
+        <button mat-menu-item>New ticket</button>
+        <button mat-menu-item>Manage tickets</button>
+    </mat-menu>
+</nav>
