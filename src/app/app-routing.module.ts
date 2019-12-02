@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 export const AUTHENTICATION_PAGE_ROUTE = 'auth';
+export const AUTHENTICATION_PAGE_ROUTE_ARRAY = ['auth'];
 
 const routes: Routes = [
   {
