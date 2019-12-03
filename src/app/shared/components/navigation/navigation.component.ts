@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AUTHENTICATION_PAGE_ROUTE_ARRAY } from 'src/app/app-routing.module';
+import { State } from 'src/app/reducers/root.reducer';
+import { Store } from '@ngrx/store';
+import * as AppGlobalActions from 'src/app/app.actions';
 
 @Component({
   selector: 'app-navigation',
@@ -10,14 +13,19 @@ import { AUTHENTICATION_PAGE_ROUTE_ARRAY } from 'src/app/app-routing.module';
 export class NavigationComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private store: Store<State>
   ) { }
 
   ngOnInit() {
   }
 
   onLogin() {
-    this.router.navigate(AUTHENTICATION_PAGE_ROUTE_ARRAY);
+    this.store.dispatch(new AppGlobalActions.AppGlobalUpdateIsLoading(true));
+  }
+
+  onSignIn() {
+    this.store.dispatch(new AppGlobalActions.AppGlobalUpdateIsLoading(false));
   }
 
 }

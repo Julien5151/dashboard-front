@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { State } from 'src/app/reducers/root.reducer';
 
 @Component({
   selector: 'app-authentication-page',
@@ -10,7 +12,6 @@ export class AuthenticationPageComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {  }
 
 }

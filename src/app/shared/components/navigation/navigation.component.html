@@ -4,7 +4,7 @@
     </button>
     <mat-menu #authMenu="matMenu">
         <button (click)="onLogin()" mat-menu-item>Login</button>
-        <button mat-menu-item>Sign-in</button>
+        <button (click)="onSignIn()" mat-menu-item>Sign-in</button>
     </mat-menu>
     <!---->
     <button mat-raised-button color="primary" [matMenuTriggerFor]="ticketMenu">

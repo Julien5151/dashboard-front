@@ -6,14 +6,21 @@ import {
   MetaReducer
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
-import { appGlobalReducer, AppGlobalVM } from '../app.reducer';
+import { appGlobalReducer, AppGlobalState, appGlobalInitialState } from '../app.reducer';
 
+// Application state
 export interface State {
-  appGlobalVM: AppGlobalVM;
+  appGlobalState: AppGlobalState;
 }
 
+// Application initial state
+export const initialState: State = {
+  appGlobalState: appGlobalInitialState
+};
+
+// Application reducer map
 export const reducers: ActionReducerMap<State> = {
-  appGlobalVM: appGlobalReducer
+  appGlobalState: appGlobalReducer
 };
 
 
