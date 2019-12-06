@@ -1,8 +1,8 @@
 import { Action } from '@ngrx/store';
 
 // Action identifiers
-export const RESTORE_INITIAL_STATE = 'APP/GLOBAL/RESTORE_INITIAL_STATE';
-export const UPDATE_IS_LOADING = 'APP/GLOBAL/UPDATE_IS_LOADING';
+export const RESTORE_INITIAL_STATE = '[Global] Restore initial state';
+export const UPDATE_IS_LOADING = '[Global] Update is loading';
 
 // Action classes
 export class AppGlobalRestoreInitialState implements Action {
