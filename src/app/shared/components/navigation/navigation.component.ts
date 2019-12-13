@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { AUTHENTICATION_PAGE_ROUTE_ARRAY } from 'src/app/app-routing.module';
 import { State } from 'src/app/reducers/root.reducer';
 import { Store } from '@ngrx/store';
 import * as AppGlobalActions from 'src/app/app.actions';
+import { AUTHENTICATION_LOGIN_FULLPATH_ROUTE_ARRAY,
+  AUTHENTICATION_SIGNIN_FULLPATH_ROUTE_ARRAY } from 'src/app/authentication/authentication-routing.module';
 
 @Component({
   selector: 'app-navigation',
@@ -21,11 +22,11 @@ export class NavigationComponent implements OnInit {
   }
 
   onLogin() {
-    this.store.dispatch(new AppGlobalActions.AppGlobalUpdateIsLoading(true));
+    this.router.navigate(AUTHENTICATION_LOGIN_FULLPATH_ROUTE_ARRAY);
   }
 
   onSignIn() {
-    this.store.dispatch(new AppGlobalActions.AppGlobalUpdateIsLoading(false));
+    this.router.navigate(AUTHENTICATION_SIGNIN_FULLPATH_ROUTE_ARRAY);
   }
 
 }
