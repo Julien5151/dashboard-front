@@ -1,3 +1,7 @@
 <app-navigation></app-navigation>
-<p *ngIf="isLoading$ | async">I'm loading</p>
-<router-outlet></router-outlet>
+<div class="flex-container">
+    <div *ngIf="isLoading$ | async" class="spinner">
+        <mat-spinner diameter="65"></mat-spinner>
+    </div>
+    <router-outlet></router-outlet>
+</div>

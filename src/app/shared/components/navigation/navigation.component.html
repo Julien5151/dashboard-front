@@ -1,17 +1,22 @@
-<nav>
-    <button mat-raised-button color="primary" [matMenuTriggerFor]="authMenu">
-        Authentication
-    </button>
-    <mat-menu #authMenu="matMenu">
-        <button (click)="onLogin()" mat-menu-item>Login</button>
-        <button (click)="onSignIn()" mat-menu-item>Sign-in</button>
-    </mat-menu>
-    <!---->
-    <button mat-raised-button color="primary" [matMenuTriggerFor]="ticketMenu">
-        Tickets
-    </button>
-    <mat-menu #ticketMenu="matMenu">
-        <button mat-menu-item>New ticket</button>
-        <button mat-menu-item>Manage tickets</button>
-    </mat-menu>
-</nav>
+<mat-toolbar color="primary">
+    <nav>
+        <div class="nav--left">
+            <button mat-button [matMenuTriggerFor]="ticketMenu">
+                Tickets
+            </button>
+            <mat-menu #ticketMenu="matMenu">
+                <button mat-menu-item>New ticket</button>
+                <button mat-menu-item>Manage tickets</button>
+            </mat-menu>
+        </div>
+        <div class="nav--right">
+            <button mat-button [matMenuTriggerFor]="authMenu">
+                Login
+            </button>
+            <mat-menu color="primary" #authMenu="matMenu">
+                <button (click)="onLogin()" mat-menu-item>Login</button>
+                <button (click)="onSignIn()" mat-menu-item>Sign-in</button>
+            </mat-menu>
+        </div>
+    </nav>
+</mat-toolbar>
