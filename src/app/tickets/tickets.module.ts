@@ -4,6 +4,7 @@ import { TicketComponent } from './components/ticket/ticket.component';
 import { TicketsManagerComponent } from './components/tickets-manager/tickets-manager.component';
 import { TicketsRoutingModule } from './tickets-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { CommonModule } from '@angular/common';
 
 
 
