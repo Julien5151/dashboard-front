@@ -7,6 +7,9 @@ import { TicketsManagerComponent } from './components/tickets-manager/tickets-ma
 export const TICKETS_NEW_TICKET = 'new';
 export const TICKETS_NEW_TICKET_FULLPATH_ROUTE_ARRAY = ['tickets', 'new'];
 
+export const TICKETS_EDIT_TICKET = 'edit';
+export const TICKETS_EDIT_TICKET_FULLPATH_ROUTE_ARRAY = ['tickets', 'edit'];
+
 export const TICKETS_MANAGE_TICKETS = 'manage';
 export const TICKETS_MANAGE_TICKETS_FULLPATH_ROUTE_ARRAY = ['tickets', 'manage'];
 
@@ -17,6 +20,10 @@ const ticketsRoutes: Routes = [
     children: [
       {
         path: TICKETS_NEW_TICKET,
+        component: TicketComponent
+      },
+      {
+        path: TICKETS_EDIT_TICKET,
         component: TicketComponent
       },
       {

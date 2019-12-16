@@ -11,6 +11,7 @@ import {
   authenticationGlobalReducer
 } from '../authentication/components/authentication/authentication.reducer';
 import { TicketsGlobalState, ticketsGlobalInitialState, ticketsGlobalReducer } from '../tickets/components/tickets/tickets.reducer';
+import { TicketState, ticketInitialState, ticketReducer } from '../tickets/components/ticket/ticket.reducer';
 
 // Application state
 export interface State {
@@ -20,6 +21,7 @@ export interface State {
   };
   ticketsModule: {
     ticketsGlobalState: TicketsGlobalState;
+    ticketState: TicketState
   };
 }
 
@@ -30,7 +32,8 @@ export const initialState: State = {
     authenticationGlobalState: authenticationGlobalInitialState
   },
   ticketsModule: {
-    ticketsGlobalState: ticketsGlobalInitialState
+    ticketsGlobalState: ticketsGlobalInitialState,
+    ticketState: ticketInitialState
   }
 };
 
@@ -41,7 +44,8 @@ export const reducers: ActionReducerMap<State> = {
     authenticationGlobalState: authenticationGlobalReducer
   }),
   ticketsModule: combineReducers({
-    ticketsGlobalState: ticketsGlobalReducer
+    ticketsGlobalState: ticketsGlobalReducer,
+    ticketState: ticketReducer
   })
 };
 

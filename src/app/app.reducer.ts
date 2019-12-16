@@ -1,5 +1,5 @@
 import * as AppGlobalActions from 'src/app/app.actions';
-import { User } from './shared/interfaces/user.interface';
+import { User } from './shared/models/user.model';
 
 // Component state
 export interface AppGlobalState {
