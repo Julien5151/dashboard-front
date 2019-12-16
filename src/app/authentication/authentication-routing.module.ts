@@ -12,23 +12,23 @@ export const AUTHENTICATION_SIGNIN_FULLPATH_ROUTE_ARRAY = ['auth', 'signin'];
 
 const authRoutes: Routes = [
     {
-      path: '',
-      component: AuthenticationComponent,
-      children: [
-        {
-          path: AUTHENTICATION_LOGIN_ROUTE,
-          component: LoginComponent
-        },
-        {
-          path: AUTHENTICATION_SIGNIN_ROUTE,
-          component: SigninComponent
-        },
-      ]
+        path: '',
+        component: AuthenticationComponent,
+        children: [
+            {
+                path: AUTHENTICATION_LOGIN_ROUTE,
+                component: LoginComponent
+            },
+            {
+                path: AUTHENTICATION_SIGNIN_ROUTE,
+                component: SigninComponent
+            },
+        ]
     }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(authRoutes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(authRoutes)],
+    exports: [RouterModule]
 })
-export class AuthenticationRoutingModule {}
+export class AuthenticationRoutingModule { }

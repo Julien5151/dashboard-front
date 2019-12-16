@@ -8,8 +8,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 
-
-
 @NgModule({
   declarations: [
     NavigationComponent
@@ -23,12 +21,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatToolbarModule
   ],
   exports: [
+    CommonModule,
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
     MatProgressSpinnerModule,
-    NavigationComponent,
-    MatToolbarModule
+    MatToolbarModule,
+    NavigationComponent
   ]
 })
 export class SharedModule { }

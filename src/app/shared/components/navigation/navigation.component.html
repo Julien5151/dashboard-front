@@ -5,8 +5,8 @@
                 Tickets
             </button>
             <mat-menu #ticketMenu="matMenu">
-                <button mat-menu-item>New ticket</button>
-                <button mat-menu-item>Manage tickets</button>
+                <button (click)="onNewTicket()" mat-menu-item>New ticket</button>
+                <button (click)="onManageTickets()" mat-menu-item>Manage tickets</button>
             </mat-menu>
         </div>
         <div class="nav--right">
