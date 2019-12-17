@@ -21,4 +21,13 @@
     width: 100%;
   }
 
+  .ticket-wrapper__menu {
+    display: flex;
+    justify-content: center;
+
+    button {
+      margin: 0rem 1rem;
+    }
+  }
+
 }

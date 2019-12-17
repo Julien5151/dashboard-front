@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 
@@ -63,7 +63,8 @@ export const MY_FORMATS = {
     NavigationComponent
   ],
   providers: [
-    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+    { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } }
   ]
 })
 export class SharedModule { }
