@@ -5,13 +5,13 @@ import { Ticket } from 'src/app/shared/models/ticket.model';
 // Component state
 export interface TicketState {
   mode: TicketMode;
-  ticketData: Ticket;
+  data: Ticket;
 }
 
 // Component initial state
 export const ticketInitialState: TicketState = {
   mode: TicketMode.new,
-  ticketData: null
+  data: null
 };
 
 // Component reducer
@@ -40,7 +40,7 @@ function updateMode(state: TicketState, action: TicketActions.TicketUpdateMode):
 function updateData(state: TicketState, action: TicketActions.TicketUpdateData): TicketState {
   return {
     ...state,
-    ticketData: action.payload
+    data: action.payload
   };
 }
 

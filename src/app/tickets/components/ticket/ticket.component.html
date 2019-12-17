@@ -1,46 +1,64 @@
 <div class="ticket-wrapper">
   <form [formGroup]="ticketForm">
-    <!---->
-    <mat-form-field appearance="outline">
-      <mat-label>Ticket ID</mat-label>
-      <input formControlName="id" matInput placeholder="Enter your ticket ID">
-    </mat-form-field>
-    <!---->
-    <mat-form-field appearance="outline">
-      <mat-label>Owner</mat-label>
-      <input formControlName="ownerShortName" matInput placeholder="Enter your short name">
-    </mat-form-field>
-    <!---->
-    <mat-form-field>
-      <input formControlName="creationDate" matInput [matDatepicker]="creationDate" placeholder="Choose a date">
-      <mat-datepicker-toggle matSuffix [for]="creationDate"></mat-datepicker-toggle>
-      <mat-datepicker #creationDate></mat-datepicker>
-    </mat-form-field>
-    <!---->
-    <mat-form-field>
-      <input formControlName="inputDataDate" matInput [matDatepicker]="inputDataDate" placeholder="Choose a date">
-      <mat-datepicker-toggle matSuffix [for]="inputDataDate"></mat-datepicker-toggle>
-      <mat-datepicker #inputDataDate></mat-datepicker>
-    </mat-form-field>
-    <!---->
-    <mat-form-field>
-      <input formControlName="deadline" matInput [matDatepicker]="deadline" placeholder="Choose a date">
-      <mat-datepicker-toggle matSuffix [for]="deadline"></mat-datepicker-toggle>
-      <mat-datepicker #deadline></mat-datepicker>
-    </mat-form-field>
-    <!---->
-    <mat-form-field>
-      <textarea formControlName="comments" matInput placeholder="Comments"></textarea>
-    </mat-form-field>
-    <!---->
-    <mat-form-field>
-      <mat-select formControlName="rating" placeholder="Rating">
-        <mat-option value="ticketRating.unacceptable">{{ ticketRating.unacceptable }}</mat-option>
-        <mat-option value="ticketRating.insufficient">{{ ticketRating.insufficient }}</mat-option>
-        <mat-option value="ticketRating.correct">{{ ticketRating.correct }}</mat-option>
-        <mat-option value="ticketRating.good">{{ ticketRating.good }}</mat-option>
-        <mat-option value="ticketRating.excellent">{{ ticketRating.excellent }}</mat-option>
-      </mat-select>
-    </mat-form-field>
+
+    <div class="form__section">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Ticket ID</mat-label>
+        <input formControlName="id" matInput placeholder="Enter your ticket ID">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Owner</mat-label>
+        <input formControlName="ownerShortName" matInput placeholder="Enter your short name">
+      </mat-form-field>
+
+    </div>
+
+    <div class="form__section">
+
+      <mat-form-field>
+        <input formControlName="creationDate" matInput [matDatepicker]="creationDate" placeholder="Creation date">
+        <mat-datepicker-toggle matSuffix [for]="creationDate"></mat-datepicker-toggle>
+        <mat-datepicker #creationDate></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="inputDataDate" matInput [matDatepicker]="inputDataDate"
+          placeholder="Input data availability date">
+        <mat-datepicker-toggle matSuffix [for]="inputDataDate"></mat-datepicker-toggle>
+        <mat-datepicker #inputDataDate></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="deadline" matInput [matDatepicker]="deadline" placeholder="Deadline">
+        <mat-datepicker-toggle matSuffix [for]="deadline"></mat-datepicker-toggle>
+        <mat-datepicker #deadline></mat-datepicker>
+      </mat-form-field>
+
+    </div>
+
+    <div class="comments">
+
+      <mat-form-field class="mat-textarea">
+        <textarea formControlName="comments" matInput placeholder="Comments"></textarea>
+      </mat-form-field>
+
+    </div>
+
+    <div class="form__section">
+
+      <mat-form-field>
+        <mat-select formControlName="rating" placeholder="Rating">
+          <mat-option value="ticketRating.unacceptable">{{ ticketRating.unacceptable }}</mat-option>
+          <mat-option value="ticketRating.insufficient">{{ ticketRating.insufficient }}</mat-option>
+          <mat-option value="ticketRating.correct">{{ ticketRating.correct }}</mat-option>
+          <mat-option value="ticketRating.good">{{ ticketRating.good }}</mat-option>
+          <mat-option value="ticketRating.excellent">{{ ticketRating.excellent }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
   </form>
 </div>
