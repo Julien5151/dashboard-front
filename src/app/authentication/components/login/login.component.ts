@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/reducers/root.reducer';
@@ -11,7 +11,7 @@ import * as LoginActions from 'src/app/authentication/components/login/login.act
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   // Subscriptions array
   subs: Subscription[] = [];
@@ -30,6 +30,13 @@ export class LoginComponent implements OnInit {
     this.initForm();
     // Handle email value typing
     this.handleEmailChanges();
+  }
+
+  ngOnDestroy() {
+    // Unsubscribe all to avoid memory leak
+    this.subs.forEach((subscription) => {
+      subscription.unsubscribe();
+    });
   }
 
   private initForm() {

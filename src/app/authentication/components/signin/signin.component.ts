@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
@@ -12,7 +12,7 @@ import { arePasswordsIdentical } from 'src/app/shared/validators/sync/arePasswor
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.scss']
 })
-export class SigninComponent implements OnInit {
+export class SigninComponent implements OnInit, OnDestroy {
 
   // Subscriptions array
   subs: Subscription[] = [];
@@ -31,6 +31,13 @@ export class SigninComponent implements OnInit {
     this.initForm();
     // Handle email value typing
     this.handleEmailChanges();
+  }
+
+  ngOnDestroy() {
+    // Unsubscribe all to avoid memory leak
+    this.subs.forEach((subscription) => {
+      subscription.unsubscribe();
+    });
   }
 
   private initForm() {
