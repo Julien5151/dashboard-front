@@ -12,6 +12,7 @@ import {
 } from '../authentication/components/authentication/authentication.reducer';
 import { TicketsGlobalState, ticketsGlobalInitialState, ticketsGlobalReducer } from '../tickets/components/tickets/tickets.reducer';
 import { TicketState, ticketInitialState, ticketReducer } from '../tickets/components/ticket/ticket.reducer';
+import { loadState } from './root.metareducer';
 
 // Application state
 export interface State {
@@ -48,6 +49,3 @@ export const reducers: ActionReducerMap<State> = {
     ticketState: ticketReducer
   })
 };
-
-
-export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
