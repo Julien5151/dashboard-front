@@ -3,9 +3,9 @@ import { TicketMode } from 'src/app/shared/enums/ticket-mode.enum';
 import { Ticket } from 'src/app/shared/models/ticket.model';
 
 // Action identifiers
-export const RESTORE_INITIAL_STATE = '[Ticket] Restore initial state';
-export const UPDATE_MODE = '[Ticket] Update mode';
-export const UPDATE_DATA = '[Ticket] Update data';
+export const RESTORE_INITIAL_STATE = '[Tickets/Ticket] Restore initial state';
+export const UPDATE_MODE = '[Tickets/Ticket] Update mode';
+export const UPDATE_DATA = '[Tickets/Ticket] Update data';
 
 // Action classes
 export class TicketRestoreInitialState implements Action {

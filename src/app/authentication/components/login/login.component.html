@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="login-wrapper">
+  <form [formGroup]="loginForm">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input formControlName="email" type="email" matInput placeholder="Enter your email">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" type="password" matInput placeholder="Enter your password">
+    </mat-form-field>
+
+  </form>
+  <div class="login-wrapper__menu">
+    <button mat-raised-button color="primary">Login</button>
+  </div>
+</div>

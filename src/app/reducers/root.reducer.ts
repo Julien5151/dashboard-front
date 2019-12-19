@@ -1,9 +1,7 @@
 import {
   ActionReducerMap,
-  MetaReducer,
   combineReducers
 } from '@ngrx/store';
-import { environment } from '../../environments/environment';
 import { appGlobalReducer, AppGlobalState, appGlobalInitialState } from '../app.reducer';
 import {
   AuthenticationGlobalState,
@@ -12,13 +10,16 @@ import {
 } from '../authentication/components/authentication/authentication.reducer';
 import { TicketsGlobalState, ticketsGlobalInitialState, ticketsGlobalReducer } from '../tickets/components/tickets/tickets.reducer';
 import { TicketState, ticketInitialState, ticketReducer } from '../tickets/components/ticket/ticket.reducer';
-import { loadState } from './root.metareducer';
+import { LoginState, loginInitialState, loginReducer } from '../authentication/components/login/login.reducer';
+import { SigninState, signinInitialState, signinReducer } from '../authentication/components/signin/signin.reducer';
 
 // Application state
 export interface State {
   appGlobalState: AppGlobalState;
   authenticationModule: {
     authenticationGlobalState: AuthenticationGlobalState;
+    loginState: LoginState;
+    signinState: SigninState;
   };
   ticketsModule: {
     ticketsGlobalState: TicketsGlobalState;
@@ -30,7 +31,9 @@ export interface State {
 export const initialState: State = {
   appGlobalState: appGlobalInitialState,
   authenticationModule: {
-    authenticationGlobalState: authenticationGlobalInitialState
+    authenticationGlobalState: authenticationGlobalInitialState,
+    loginState: loginInitialState,
+    signinState: signinInitialState
   },
   ticketsModule: {
     ticketsGlobalState: ticketsGlobalInitialState,
@@ -42,7 +45,9 @@ export const initialState: State = {
 export const reducers: ActionReducerMap<State> = {
   appGlobalState: appGlobalReducer,
   authenticationModule: combineReducers({
-    authenticationGlobalState: authenticationGlobalReducer
+    authenticationGlobalState: authenticationGlobalReducer,
+    loginState: loginReducer,
+    signinState: signinReducer
   }),
   ticketsModule: combineReducers({
     ticketsGlobalState: ticketsGlobalReducer,

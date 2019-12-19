@@ -1,1 +1,21 @@
-<p>signin works!</p>
+<div class="signin-wrapper">
+  <form [formGroup]="signinForm">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input formControlName="email" type="email" matInput placeholder="Enter your email">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" type="password" matInput placeholder="Enter your password">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password confirmation</mat-label>
+      <input formControlName="passwordConfirmation" type="password" matInput placeholder="Confirm your password">
+    </mat-form-field>
+
+  </form>
+  <div class="signin-wrapper__menu">
+    <button mat-raised-button color="primary">Signin</button>
+  </div>
+</div>

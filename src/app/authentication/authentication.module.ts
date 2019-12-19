@@ -8,9 +8,9 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
+    AuthenticationComponent,
     LoginComponent,
-    SigninComponent,
-    AuthenticationComponent
+    SigninComponent
   ],
   imports: [
     SharedModule,

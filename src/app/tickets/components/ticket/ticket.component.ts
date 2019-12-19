@@ -6,7 +6,7 @@ import { State } from 'src/app/reducers/root.reducer';
 import { Subscription } from 'rxjs';
 import { Ticket } from 'src/app/shared/models/ticket.model';
 import * as TicketActions from 'src/app/tickets/components/ticket/ticket.actions';
-import { take } from 'rxjs/operators';
+import { take, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-ticket',
@@ -87,7 +87,7 @@ export class TicketComponent implements OnInit, OnDestroy {
 
   private handleValueChanges() {
     // Subscribe to any value changes in the form
-    const sub = this.ticketForm.valueChanges.subscribe((formValues) => {
+    const sub = this.ticketForm.valueChanges.pipe(debounceTime(500)).subscribe((formValues) => {
       if (this.ticketForm.valid) {
         this.store.dispatch(new TicketActions.TicketUpdateData(new Ticket(
           formValues.id,
