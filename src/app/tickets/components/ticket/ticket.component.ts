@@ -7,13 +7,15 @@ import { Subscription } from 'rxjs';
 import { Ticket } from 'src/app/shared/models/ticket.model';
 import * as TicketActions from 'src/app/tickets/components/ticket/ticket.actions';
 import { take, debounceTime } from 'rxjs/operators';
+import { DatabaseService } from 'src/app/shared/services/database.service';
+import { BasicComponent } from 'src/app/shared/components/basic/basic.component';
 
 @Component({
   selector: 'app-ticket',
   templateUrl: './ticket.component.html',
   styleUrls: ['./ticket.component.scss']
 })
-export class TicketComponent implements OnInit, OnDestroy {
+export class TicketComponent extends BasicComponent implements OnInit, OnDestroy {
 
   // Subscriptions array
   subs: Subscription[] = [];
@@ -37,8 +39,11 @@ export class TicketComponent implements OnInit, OnDestroy {
 
 
   constructor(
-    private store: Store<State>
-  ) { }
+    store: Store<State>,
+    private dbService: DatabaseService
+  ) {
+    super(store);
+  }
 
   ngOnInit() {
     // Create new ticket in store
@@ -58,7 +63,7 @@ export class TicketComponent implements OnInit, OnDestroy {
 
   private initStore() {
     // Check if there is data in store
-    const sub = this.data$.subscribe((ticketData) => {
+    const sub = this.data$.pipe(take(1)).subscribe((ticketData) => {
       if (ticketData === null) {
         // Create new ticket in store
         this.store.dispatch(new TicketActions.TicketUpdateData(new Ticket()));
@@ -102,6 +107,21 @@ export class TicketComponent implements OnInit, OnDestroy {
     });
     // Add to subs array for unsubcribe on destroy
     this.subs.push(sub);
+  }
+
+  // Save ticket to database
+  onSave() {
+    // Get data from state
+    const ticketData = this.getState().ticketsModule.ticketState.data;
+    // Database call for saving ticket
+    this.dbService.saveTicket(ticketData).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
 

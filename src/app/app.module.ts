@@ -12,6 +12,7 @@ import { AppEffects } from './app.effects';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { metaReducers } from './reducers/root.metareducer';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { metaReducers } from './reducers/root.metareducer';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
     SharedModule,
     StoreModule.forRoot(reducers, {

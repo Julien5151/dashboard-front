@@ -14,6 +14,7 @@ import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/m
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { ResetAppComponent } from './components/reset-app/reset-app.component';
+import { BasicComponent } from './components/basic/basic.component';
 
 
 export const MY_FORMATS = {
@@ -32,7 +33,8 @@ export const MY_FORMATS = {
 @NgModule({
   declarations: [
     NavigationComponent,
-    ResetAppComponent
+    ResetAppComponent,
+    BasicComponent
   ],
   imports: [
     CommonModule,
@@ -63,7 +65,8 @@ export const MY_FORMATS = {
     MatSelectModule,
     //
     NavigationComponent,
-    ResetAppComponent
+    ResetAppComponent,
+    BasicComponent
   ],
   providers: [
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },

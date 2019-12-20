@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  backendUrls: {
+    saveTicket: 'http://localhost:3000/tickets/save'
+  }
 };
 
 /*
