@@ -1,10 +1,9 @@
 import * as AppGlobalActions from 'src/app/app.actions';
-import { User } from './shared/models/user.model';
 
 // Component state
 export interface AppGlobalState {
   isLoading: boolean;
-  userData: User;
+  userData: any;
 }
 
 // Component initial state

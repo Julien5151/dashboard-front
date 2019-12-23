@@ -32,11 +32,6 @@ export class TicketComponent extends BasicComponent implements OnInit, OnDestroy
     return state.ticketsModule.ticketState.data;
   });
 
-  // Store external dependencies
-  public ownerShortName$ = this.store.select((state) => {
-    return state.appGlobalState.userData.shortName;
-  });
-
 
   constructor(
     store: Store<State>,

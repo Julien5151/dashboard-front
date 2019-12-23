@@ -1,5 +1,4 @@
 import { Action } from '@ngrx/store';
-import { User } from './shared/models/user.model';
 
 // Action identifiers
 export const RESTORE_INITIAL_STATE = '[Global] Restore initial state';
@@ -16,7 +15,7 @@ export class AppGlobalUpdateIsLoading implements Action {
 }
 export class AppGlobalUpdateUserData implements Action {
   readonly type = UPDATE_USER_DATA;
-  constructor(public payload: User) { }
+  constructor(public payload: any) { }
 }
 
 // Action types

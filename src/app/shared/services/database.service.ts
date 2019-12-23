@@ -13,4 +13,12 @@ export class DatabaseService {
       ticketData: ticket
     });
   }
+
+  signIn(email: string, password: string, passwordConfirmation: string) {
+    return this.http.post<any>(environment.backendUrls.signinUser, {
+      email,
+      password,
+      passwordConfirmation
+    });
+  }
 }
