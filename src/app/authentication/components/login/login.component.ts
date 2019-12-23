@@ -5,13 +5,15 @@ import { State } from 'src/app/reducers/root.reducer';
 import { Subscription } from 'rxjs';
 import { take, debounceTime } from 'rxjs/operators';
 import * as LoginActions from 'src/app/authentication/components/login/login.actions';
+import { BasicComponent } from 'src/app/shared/components/basic/basic.component';
+import { DatabaseService } from 'src/app/shared/services/database.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent extends BasicComponent implements OnInit, OnDestroy {
 
   // Subscriptions array
   subs: Subscription[] = [];
@@ -23,13 +25,19 @@ export class LoginComponent implements OnInit, OnDestroy {
     return state.authenticationModule.loginState.email;
   });
 
-  constructor(private store: Store<State>) { }
+  constructor(
+    store: Store<State>,
+    private dbService: DatabaseService
+  ) {
+    super(store);
+  }
 
   ngOnInit() {
     // Init reactive form object
     this.initForm();
-    // Handle email value typing
+    // Handle form values typing
     this.handleEmailChanges();
+    this.handlePasswordChanges();
   }
 
   ngOnDestroy() {
@@ -43,8 +51,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     // Check if there is data in store
     const sub = this.email$.pipe(take(1)).subscribe((email) => {
       this.loginForm = new FormGroup({
-        email: new FormControl(email, Validators.email),
-        password: new FormControl()
+        email: new FormControl(email, [Validators.required, Validators.email]),
+        password: new FormControl('', [Validators.required, Validators.minLength(6)])
       });
     });
     // Add to subs array for unsubcribe on destroy
@@ -62,6 +70,34 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
     // Add to subs array for unsubcribe on destroy
     this.subs.push(sub);
+  }
+
+  private handlePasswordChanges() {
+    // Subscribe to any value changes in the form
+    const sub = this.loginForm.get('password').valueChanges.pipe(debounceTime(500)).subscribe((passwordValue) => {
+      if (this.loginForm.get('password').valid) {
+        this.store.dispatch(new LoginActions.LoginUpdatePassword(passwordValue));
+      } else {
+        this.store.dispatch(new LoginActions.LoginUpdatePassword(null));
+      }
+    });
+    // Add to subs array for unsubcribe on destroy
+    this.subs.push(sub);
+  }
+
+  onLogin() {
+    // Get values from the state
+    const email = this.getState().authenticationModule.loginState.email;
+    const password = this.getState().authenticationModule.loginState.password;
+    // Call login on the backend
+    this.dbService.logIn(email, password).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
 }

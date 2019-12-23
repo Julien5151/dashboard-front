@@ -12,6 +12,6 @@
 
   </form>
   <div class="login-wrapper__menu">
-    <button mat-raised-button color="primary">Login</button>
+    <button [disabled]="!loginForm.valid" mat-raised-button color="primary" (click)="onLogin()">Login</button>
   </div>
 </div>

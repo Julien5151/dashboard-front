@@ -14,6 +14,13 @@ export class DatabaseService {
     });
   }
 
+  logIn(email: string, password: string) {
+    return this.http.post<any>(environment.backendUrls.loginUser, {
+      email,
+      password
+    });
+  }
+
   signIn(email: string, password: string, passwordConfirmation: string) {
     return this.http.post<any>(environment.backendUrls.signinUser, {
       email,

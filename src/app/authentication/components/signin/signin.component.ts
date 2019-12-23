@@ -59,9 +59,9 @@ export class SigninComponent extends BasicComponent implements OnInit, OnDestroy
     // Check if there is data in store
     const sub = this.email$.pipe(take(1)).subscribe((email) => {
       this.signinForm = new FormGroup({
-        email: new FormControl(email, Validators.email),
-        password: new FormControl(),
-        passwordConfirmation: new FormControl()
+        email: new FormControl(email, [Validators.required, Validators.email]),
+        password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+        passwordConfirmation: new FormControl('', [Validators.required, Validators.minLength(6)])
       }, {
         validators: arePasswordsIdentical
       });

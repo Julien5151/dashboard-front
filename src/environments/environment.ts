@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   backendUrls: {
     saveTicket: 'http://localhost:3000/tickets/save',
+    loginUser: 'http://localhost:3000/auth/login',
     signinUser: 'http://localhost:3000/auth/signup'
   }
 };
