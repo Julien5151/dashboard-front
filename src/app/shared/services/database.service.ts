@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Ticket } from '../models/ticket.model';
 import { environment } from 'src/environments/environment';
+import { LoginResponse } from '../interfaces/LoginResponse.interface';
 
 @Injectable({ providedIn: 'root' })
 export class DatabaseService {
@@ -15,7 +16,7 @@ export class DatabaseService {
   }
 
   logIn(email: string, password: string) {
-    return this.http.post<any>(environment.backendUrls.loginUser, {
+    return this.http.post<LoginResponse>(environment.backendUrls.loginUser, {
       email,
       password
     });

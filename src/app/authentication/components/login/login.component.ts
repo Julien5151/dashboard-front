@@ -7,6 +7,7 @@ import { take, debounceTime } from 'rxjs/operators';
 import * as LoginActions from 'src/app/authentication/components/login/login.actions';
 import { BasicComponent } from 'src/app/shared/components/basic/basic.component';
 import { DatabaseService } from 'src/app/shared/services/database.service';
+import { LoginResponse } from 'src/app/shared/interfaces/LoginResponse.interface';
 
 @Component({
   selector: 'app-login',
@@ -91,7 +92,7 @@ export class LoginComponent extends BasicComponent implements OnInit, OnDestroy 
     const password = this.getState().authenticationModule.loginState.password;
     // Call login on the backend
     this.dbService.logIn(email, password).subscribe(
-      (response) => {
+      (response: LoginResponse) => {
         console.log(response);
       },
       (error) => {

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
-import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from './components/signup/signup.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 
 export const AUTHENTICATION_LOGIN_ROUTE = 'login';
 export const AUTHENTICATION_LOGIN_FULLPATH_ROUTE_ARRAY = ['auth', 'login'];
 
-export const AUTHENTICATION_SIGNIN_ROUTE = 'signin';
-export const AUTHENTICATION_SIGNIN_FULLPATH_ROUTE_ARRAY = ['auth', 'signin'];
+export const AUTHENTICATION_SIGNUP_ROUTE = 'signup';
+export const AUTHENTICATION_SIGNUP_FULLPATH_ROUTE_ARRAY = ['auth', 'signup'];
 
 const authRoutes: Routes = [
   {
@@ -20,8 +20,8 @@ const authRoutes: Routes = [
         component: LoginComponent
       },
       {
-        path: AUTHENTICATION_SIGNIN_ROUTE,
-        component: SigninComponent
+        path: AUTHENTICATION_SIGNUP_ROUTE,
+        component: SignupComponent
       },
     ]
   }

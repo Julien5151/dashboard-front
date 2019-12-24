@@ -1,5 +1,5 @@
-<div class="signin-wrapper">
-  <form [formGroup]="signinForm">
+<div class="signup-wrapper">
+  <form [formGroup]="signupForm">
 
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
@@ -15,7 +15,7 @@
     </mat-form-field>
 
   </form>
-  <div class="signin-wrapper__menu">
-    <button [disabled]="!signinForm.valid" mat-raised-button color="primary" (click)="onSignin()">Signin</button>
+  <div class="signup-wrapper__menu">
+    <button [disabled]="!signupForm.valid" mat-raised-button color="primary" (click)="onSignup()">Signup</button>
   </div>
 </div>
