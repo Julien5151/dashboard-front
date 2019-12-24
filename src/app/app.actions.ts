@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { LoginResponse } from './shared/interfaces/LoginResponse.interface';
 
 // Action identifiers
 export const RESTORE_INITIAL_STATE = '[Global] Restore initial state';
@@ -15,7 +16,7 @@ export class AppGlobalUpdateIsLoading implements Action {
 }
 export class AppGlobalUpdateUserData implements Action {
   readonly type = UPDATE_USER_DATA;
-  constructor(public payload: any) { }
+  constructor(public payload: LoginResponse) { }
 }
 
 // Action types

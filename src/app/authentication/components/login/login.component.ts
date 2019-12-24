@@ -8,6 +8,7 @@ import * as LoginActions from 'src/app/authentication/components/login/login.act
 import { BasicComponent } from 'src/app/shared/components/basic/basic.component';
 import { DatabaseService } from 'src/app/shared/services/database.service';
 import { LoginResponse } from 'src/app/shared/interfaces/LoginResponse.interface';
+import * as AppGlobalActions from 'src/app/app.actions';
 
 @Component({
   selector: 'app-login',
@@ -93,6 +94,8 @@ export class LoginComponent extends BasicComponent implements OnInit, OnDestroy 
     // Call login on the backend
     this.dbService.logIn(email, password).subscribe(
       (response: LoginResponse) => {
+        // Store user data in state
+        this.store.dispatch(new AppGlobalActions.AppGlobalUpdateUserData(response));
         console.log(response);
       },
       (error) => {
