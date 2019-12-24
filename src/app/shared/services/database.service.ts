@@ -3,15 +3,24 @@ import { HttpClient } from '@angular/common/http';
 import { Ticket } from '../models/ticket.model';
 import { environment } from 'src/environments/environment';
 import { LoginResponse } from '../interfaces/LoginResponse.interface';
+import { StoreService } from './store.service';
 
 @Injectable({ providedIn: 'root' })
 export class DatabaseService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private storeService: StoreService) { }
 
   saveTicket(ticket: Ticket) {
+    // Get token from state
+    const token = this.storeService.getState().appGlobalState.userData.userToken;
     return this.http.post<any>(environment.backendUrls.saveTicket, {
       ticketData: ticket
+    }, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
     });
   }
 

@@ -1,9 +1,10 @@
 import * as AppGlobalActions from 'src/app/app.actions';
+import { LoginResponse } from './shared/interfaces/LoginResponse.interface';
 
 // Component state
 export interface AppGlobalState {
   isLoading: boolean;
-  userData: any;
+  userData: LoginResponse;
 }
 
 // Component initial state
